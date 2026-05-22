@@ -19,6 +19,7 @@ curl -fsSL 'https://azurecliprod.blob.core.windows.net/$root/deb_install.sh' | s
 
 # dotnet
 sudo apt-get update && sudo apt-get install -y \
+  cargo \
   dotnet-sdk-10.0
 
 # agents
