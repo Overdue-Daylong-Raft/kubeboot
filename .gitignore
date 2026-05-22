@@ -352,11 +352,14 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-#
+# OMX
 .omx
 
-#
+# PNPM
 .pnpm-store
 
-# 
+# LSP server cache
 *.lscache
+
+# Local stacks
+Pulumi.*.yaml
