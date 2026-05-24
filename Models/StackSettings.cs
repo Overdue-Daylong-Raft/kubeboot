@@ -65,7 +65,7 @@ internal sealed class StackSettings
             ArgoCdServiceTag = config.Get("argocdServiceTag") ?? $"tag:{clusterName}-service-argocd",
             ArgoCdHost = config.Get("argocdHost") ?? "argocd",
             GitOpsRepoUrl = config.Require("gitopsRepoUrl"),
-            GitOpsRevision = config.Get("gitopsRevision") ?? "master",
+            GitOpsRevision = config.Get("gitopsRevision") ?? "main",
             GitOpsBootstrapPath = config.Get("gitopsBootstrapPath") ?? "gitops/clusters/control",
             TailscalePolicyExternalLink = config.Get("tailscalePolicyExternalLink") ?? config.Get("gitopsRepoUrl"),
             TailscaleKubernetesApiAccessSources = ParseCsv(config.Get("tailscaleKubernetesApiAccessSrcs"), "autogroup:admin"),
