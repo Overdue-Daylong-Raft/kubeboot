@@ -52,8 +52,8 @@ internal sealed class TailnetPolicy : ComponentResource
 
     private static string BuildPolicy(TailnetPolicyArgs args)
     {
-        static JsonArray Array(params string[] values) => new(values.Select(value => (JsonNode?)JsonValue.Create(value)).ToArray());
-        static JsonArray NodeArray(IEnumerable<string> values) => new(values.Select(value => (JsonNode?)JsonValue.Create(value)).ToArray());
+        static JsonArray Array(params string[] values) => new([.. values.Select(value => (JsonNode?)JsonValue.Create(value))]);
+        static JsonArray NodeArray(IEnumerable<string> values) => new([.. values.Select(value => (JsonNode?)JsonValue.Create(value))]);
 
         var firstKubernetesSource = args.KubernetesApiAccessSources.First();
         var firstArgoCdSource = args.ArgoCdAccessSources.First();
