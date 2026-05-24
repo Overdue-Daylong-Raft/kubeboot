@@ -10,9 +10,9 @@
     <PackageReference Include="Pulumi" Version="3.106.2" />
     <PackageReference Include="Pulumi.AzureNative" Version="3.18.0" />
     <PackageReference Include="Pulumi.Kubernetes" Version="4.31.1" />
-    <PackageReference Include="Pulumi.Random" Version="4.20.0" />
-    <PackageReference Include="Pulumi.Tailscale" Version="0.27.1" />
-    <PackageReference Include="Pulumi.Tls" Version="5.4.0" />
+    <PackageReference Include="Pulumi.Random" Version="4.21.0" />
+    <PackageReference Include="Pulumi.Tailscale" Version="0.28.0" />
+    <PackageReference Include="Pulumi.Tls" Version="5.5.0" />
   </ItemGroup>
 
 </Project>
