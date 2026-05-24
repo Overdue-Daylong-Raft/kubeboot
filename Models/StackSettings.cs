@@ -47,7 +47,7 @@ internal sealed class StackSettings
             VmSize = config.Get("vmSize") ?? "Standard_B2pls_v2",
             OsImage = config.Get("osImage") ?? "Canonical:ubuntu-24_04-lts:server-arm64:latest",
             AdminUsername = config.Get("adminUsername") ?? "pulumiuser",
-            ServerCount = ParseServerCount(config.Get("serverCount") ?? "3"),
+            ServerCount = config.GetInt32("serverCount") ?? 1,
             VnetCidr = config.Get("vnetCidr") ?? "10.0.0.0/16",
             SubnetCidr = config.Get("subnetCidr") ?? "10.0.1.0/24",
             PodCidrs = config.Get("podCidrs") ?? "10.42.0.0/16,2001:cafe:42::/56",
@@ -73,24 +73,13 @@ internal sealed class StackSettings
         };
     }
 
-    private static int ParseServerCount(string value)
-    {
-        if (!int.TryParse(value, out var serverCount) || serverCount < 1)
-        {
-            throw new ArgumentOutOfRangeException(nameof(value), "serverCount must be at least 1.");
-        }
-
-        return serverCount;
-    }
-
     private static IReadOnlyList<string> ParseCsv(string? rawValue, string defaultValue)
     {
         var resolved = string.IsNullOrWhiteSpace(rawValue) ? defaultValue : rawValue;
-        return resolved
+        return [.. resolved
             .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .Where(item => !string.IsNullOrWhiteSpace(item))
-            .Distinct(StringComparer.Ordinal)
-            .ToArray();
+            .Distinct(StringComparer.Ordinal)];
     }
 
     private static string NormalizeTailnetDomain(string value) => value.Trim().Trim('.');
