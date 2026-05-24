@@ -363,3 +363,4 @@ MigrationBackup/
 
 # Local stacks
 Pulumi.*.yaml
+!Pulumi.*-example.yaml

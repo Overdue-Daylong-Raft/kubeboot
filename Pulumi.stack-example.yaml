@@ -1,0 +1,29 @@
+config:
+  kubeboot:adminUsername: admin
+  kubeboot:clusterName: cluster
+  kubeboot:k3sChannel: stable
+  kubeboot:osImage: Canonical:ubuntu-24_04-lts:server-arm64:latest
+  kubeboot:podCidrs: 10.42.0.0/16,2001:cafe:42::/56
+  kubeboot:serviceCidrs: 10.43.0.0/16,2001:cafe:43::/112
+  kubeboot:subnetCidr: 10.0.1.0/24
+  kubeboot:serverCount: 3
+  kubeboot:tailscaleNodeTag: tag:cluster-node
+  kubeboot:vmSize: Standard_B2pls_v2
+  kubeboot:vnetCidr: 10.0.0.0/16
+  azure-native:location: WestUS3
+  kubeboot:tailscaleAuthKey:
+    secure: <addme>
+  kubeboot:tailscaleOperatorClientSecret:
+    secure: <addme>
+  kubeboot:tailscaleOperatorTag: tag:cluster-operator
+  kubeboot:tailscaleProxyTag: tag:cluster-proxy
+  kubeboot:argocdServiceTag: tag:cluster-service-argocd
+  kubeboot:argocdHost: argocd
+  kubeboot:gitopsRepoUrl: https://example.invalid/replace-me.git
+  kubeboot:gitopsRevision: main
+  kubeboot:gitopsBootstrapPath: gitops/clusters/control
+  kubeboot:tailscaleKubernetesApiAccessSrcs: autogroup:admin
+  kubeboot:argocdAccessSrcs: autogroup:admin
+  kubeboot:tailscalePolicyExternalLink: https://example.invalid/replace-me.git
+  tailscale:apiKey: tskey-api-invalid-placeholder
+  tailscale:tailnet: tail00000.ts.net
